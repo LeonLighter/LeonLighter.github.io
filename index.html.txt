@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Cyberpunk</title>
+    <style>
+        :root {
+            --neon-blue: #00fff2;
+            --neon-pink: #ff00ff;
+            --dark-bg: #0a0a0a;
+            --cyber-font: 'Courier New', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #fff;
+            font-family: var(--cyber-font);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .glitch {
+            position: relative;
+            text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue);
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue); }
+            49% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue); }
+            50% { text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue); }
+            99% { text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-blue); }
+            100% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 255, 242, 0.1) 0px,
+                rgba(0, 255, 242, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            z-index: -1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--neon-blue);
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--neon-blue);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: var(--neon-pink);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--neon-blue);
+        }
+
+        .cv {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--neon-pink);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#cv">CV</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="accueil">
+        <h1 class="glitch">Votre Nom</h1>
+        <p class="subtitle">Développeur Full Stack</p>
+    </header>
+
+    <section id="projets" class="container">
+        <h2 class="glitch">Mes Projets</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Projet 1</h3>
+                <p>Description du projet...</p>
+                <a href="#" target="_blank">Voir le projet</a>
+            </div>
+            <div class="project-card">
+                <h3>Projet 2</h3>
+                <p>Description du projet...</p>
+                <a href="#" target="_blank">Voir le projet</a>
+            </div>
+            <div class="project-card">
+                <h3>Projet 3</h3>
+                <p>Description du projet...</p>
+                <a href="#" target="_blank">Voir le projet</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv" class="container">
+        <h2 class="glitch">Mon CV</h2>
+        <div class="cv">
+            <!-- Remplacez cette section par votre CV -->
+            <h3>Expérience</h3>
+            <p>Votre expérience...</p>
+            
+            <h3>Formation</h3>
+            <p>Votre formation...</p>
+            
+            <h3>Compétences</h3>
+            <p>Vos compétences...</p>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="glitch">Contact & Réseaux</h2>
+        <div class="social-links">
+            <a href="https://github.com/votre-compte" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/votre-profil" target="_blank">LinkedIn</a>
+            <a href="mailto:votre@email.com">Email</a>
+        </div>
+    </section>
+</body>
+</html>
